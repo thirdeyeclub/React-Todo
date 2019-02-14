@@ -15,18 +15,17 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.addItem(e, this.state.item)}>
+      <form onSubmit={e => this.props.newTask(e, this.state.item)}>
         <input
           type="text"
           value={this.state.item}
           name="item"
           onChange={this.handleChanges}
                                         />
-        <button>create task</button>
+        <button className='btn' onClick='{this.props.handleChanges}'>create task</button>
+        <button className='btn'>clear</button>
       </form>
             );
             }
                                                                                            }
-
-
 export default TodoForm;
