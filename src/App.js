@@ -15,23 +15,18 @@ class App extends React.Component {
       newItem: ""
                                   };}
 
-  addNewItem = event => {
-    event.preventDefault();
-    if (this.state.newItem !== "") {
-      this.setState(
-        prevState => {
-          return {
-            TodoData: prevState.TodoData.concat({
-              todo: this.state.newItem,
-              id: Date.now(),
-              completed: false
-                                                }),
-            newItem: ""
-                                                };
-                                                },
-                                                );
-                                                }
-                                                };
+addItem = (e, item) => {
+    e.preventDefault();
+    const newItem = {
+      name: item,
+      id: Date.now(),
+      purchased: false
+    };
+    this.setState({
+      task: [...this.state.task, newItem]
+    });
+  };
+
 
   formEventHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
